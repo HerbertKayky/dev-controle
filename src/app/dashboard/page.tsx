@@ -14,7 +14,7 @@ export default async function Dashboard() {
 
   return (
     <Container>
-      <main className="mt-9 mb-2">
+      <main className="mt-8 mb-2">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl font-bold">Chamados</h1>
           <Link
