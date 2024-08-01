@@ -12,6 +12,7 @@
     "@auth/prisma-adapter": "^2.4.1",
     "@hookform/resolvers": "^3.9.0",
     "@prisma/client": "^5.16.2",
+    "axios": "^1.7.3",
     "next": "14.2.5",
     "next-auth": "^4.24.7",
     "prisma": "^5.16.2",
