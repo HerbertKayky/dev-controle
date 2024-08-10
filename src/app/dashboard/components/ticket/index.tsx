@@ -1,6 +1,9 @@
+"use client";
+import { api } from "@/lib/api";
 import { CustomerProps } from "@/utils/customer.type";
 import { TicketProps } from "@/utils/ticket.type";
-import { FiFile, FiTrash2 } from "react-icons/fi";
+import { FiCheckSquare, FiFile } from "react-icons/fi";
+import { useRouter } from "next/navigation";
 
 interface TicketItemProps {
   ticket: TicketProps;
@@ -8,6 +11,20 @@ interface TicketItemProps {
 }
 
 export function TicketItem({ customer, ticket }: TicketItemProps) {
+  const router = useRouter();
+
+  async function handleChangeStatus() {
+    try {
+      const response = await api.patch("/api/ticket", {
+        id: ticket.id,
+      });
+
+      router.refresh();
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <>
       <tr
@@ -27,8 +44,8 @@ export function TicketItem({ customer, ticket }: TicketItemProps) {
         </td>
 
         <td className="text-left">
-          <button className="mr-2">
-            <FiTrash2 size={24} color="#EF4444" />
+          <button className="mr-3" onClick={handleChangeStatus}>
+            <FiCheckSquare size={24} color="#131313" />
           </button>
           <button>
             <FiFile size={24} color="#3B82F6" />
