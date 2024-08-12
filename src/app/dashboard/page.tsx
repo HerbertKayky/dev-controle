@@ -23,8 +23,6 @@ export default async function Dashboard() {
     },
   });
 
-  console.log(tickets);
-
   return (
     <Container>
       <main className="mt-8 mb-2">
